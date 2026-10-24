@@ -1,3 +1,5 @@
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 <p align="center" width="100%">
 <img src="assets/logo.png" alt="DeepAnalyze" style="width: 60%; min-width: 300px; display: block; margin: auto;">
 </p>
@@ -238,3 +240,59 @@ Welcome to join the [DeepAnalyze WeChat group](./assets/wechat.jpg), chat and sh
 If you like DeepAnalyze, give it a GitHub Star ⭐. 
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ruc-datalab/DeepAnalyze&type=date&legend=top-left)](https://www.star-history.com/#ruc-datalab/DeepAnalyze&type=date&legend=top-left)
+
+---
+
+## Fork setup notes
+
+### Requirements
+
+A Linux/CUDA/NVIDIA GPU environment compatible with vLLM and PyTorch. Model weights are obtained separately. See requirements.txt; memory requirements depend on model and inference settings.
+
+## Get the repository
+
+```bash
+git clone https://github.com/RoxyXu151/DeepAnalyze.git
+cd DeepAnalyze
+```
+
+Private repositories require GitHub authentication. Relative paths and steps below start from this repository.
+
+## Setup and entry point
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+## Configuration and preparation
+
+run.py contains upstream machine-specific model and workspace paths; replace them with local model and input directories before running. Read docker/README.md for containers. Compose defaults to an interactive shell rather than automatically launching the model API.
+
+## Usage and outputs
+
+Prepare a trusted data workspace and follow the DeepAnalyzeVLLM example in the English README. run.py demonstrates prompt, workspace, and generate calls, producing reasoning and workspace artifacts. The web demo is under demo/ and needs its own script configuration.
+
+## Repository map
+
+- [requirements.txt](requirements.txt)
+- [run.py](run.py)
+- [demo](demo)
+- [docker](docker)
+- [example](example)
+- [CONTRIBUTION.md](CONTRIBUTION.md)
+- [docker/README.md](docker/README.md)
+- [example/README.md](example/README.md)
+
+## Verification and troubleshooting
+
+Check model loading, file access, and artifacts with a small dataset and simple question. Review generated code and conclusions manually. GPU inference and paper metrics were not reproduced by this documentation update. See CONTRIBUTION.md and the English home page for contribution and citation details.
+
+## Maintenance and contributions
+
+Keep both READMEs in sync when functionality or usage changes. Report reproducible steps, environment versions, and sanitized logs. Describe the verification actually performed with each change.
+
+## License and attribution
+
+See [LICENSE](LICENSE) for repository terms. Third-party code, data, models, papers, and artwork retain their own licenses and attribution.
+
+This is a fork; upstream authorship, citations, and copyright notices remain in place.
